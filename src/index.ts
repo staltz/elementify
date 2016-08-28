@@ -3,7 +3,7 @@ import {run} from '@cycle/xstream-run';
 import {h, VNode, makeDOMDriver} from '@cycle/dom';
 import Item from './Item';
 import elementify from './elementify';
-import List from './NewList';
+import List from './List';
 import {DOMSource} from '@cycle/dom/xstream-typings';
 
 interface Sources {
@@ -17,18 +17,6 @@ interface Sinks {
 function main(sources: Sources): Sinks {
   return List(sources);
 }
-
-// const item = elementify(Item);
-
-// function main() {
-//   return {
-//     DOM: xs.of(
-//       h('div.hello', [
-//         item('.foo', { attrs: { color: 'yellow', width: 400 } })
-//       ])
-//     )
-//   }
-// }
 
 run(main, {
   DOM: makeDOMDriver('#main-container')
